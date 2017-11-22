@@ -3,4 +3,5 @@ from django.shortcuts import render
 
 
 def welcome(request):
-    return HttpResponse('Welcome to find tutor')
+    return render(request,
+                  'list_tutor/hello.html')
