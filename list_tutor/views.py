@@ -14,6 +14,8 @@ def welcome(request):
 def add_tutor(request):
     if request.method == 'GET':
         return HttpResponse('Get works')
+    else:
+        print('IN POST')
     print(request.POST)
 
-    return HttpResponse(json.dumps(request.POST))
+    return HttpResponse(json.dumps('request success knuth'))
