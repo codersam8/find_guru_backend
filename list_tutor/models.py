@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Guru(models.Model):
+class Tutor(models.Model):
     mail_id = models.EmailField()
     first_name = models.CharField(max_length=10)
     last_name = models.CharField(max_length=10)
