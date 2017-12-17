@@ -16,6 +16,12 @@ def add_tutor(request):
         return HttpResponse('Get works')
     else:
         print('IN POST')
-    print(request.POST)
+    req = request.read().decode('utf-8')
+    print(request.read().decode('utf-8'))
+    print(repr(req))
+    obj_req = json.loads(req)
+    print('obj_req')
+    print(obj_req)
+    print(obj_req['id'])
 
     return HttpResponse(json.dumps('request success knuth'))
