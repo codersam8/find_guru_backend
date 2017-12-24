@@ -28,3 +28,7 @@ def add_tutor(request):
     a_tutor.save()
 
     return HttpResponse(json.dumps('request success knuth'))
+
+
+def search_tutors(request):
+    return HttpResponse(json.dumps(['search_tutors working fine', 'reshma', 'sampath']))
