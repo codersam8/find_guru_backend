@@ -1,3 +1,5 @@
+import json
+
 from django.db import models
 
 
@@ -11,18 +13,13 @@ class Tutor(models.Model):
     location = models.CharField(max_length=30)
 
     def __str__(self):
-        return '''
-        mail_id: %s
-        first_name: %s
-        last_name: %s
-        qualification: %s
-        institute: %s
-        mobile: %s
-        location: %s
-        ''' % (self.mail_id,
-               self.first_name,
-               self.last_name,
-               self.qualification,
-               self.institute,
-               self.mobile,
-               self.location)
+        object_dict = {
+            'mail_id': self.mail_id,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'qualification': self.qualification,
+            'institute': self.institute,
+            'mobile': self.mobile,
+            'location': self.location
+        }
+        return json.dumps(object_dict)

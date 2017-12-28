@@ -1,3 +1,4 @@
+from django.core import serializers
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
@@ -37,4 +38,4 @@ def search_tutors(request):
     matched_tutors = list(Tutor.objects.filter(location__icontains=location))
     print('*' * 80)
     print('matched_tutors', matched_tutors)
-    return HttpResponse(json.dumps(['search_tutors working fine', 'reshma', 'sampath']))
+    return HttpResponse(serializers.serialize('json', matched_tutors))
