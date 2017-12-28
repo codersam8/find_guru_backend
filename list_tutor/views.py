@@ -31,4 +31,10 @@ def add_tutor(request):
 
 
 def search_tutors(request):
+    location = request.GET['location']
+    print('*' * 80)
+    print('loca', location)
+    matched_tutors = list(Tutor.objects.filter(location__icontains=location))
+    print('*' * 80)
+    print('matched_tutors', matched_tutors)
     return HttpResponse(json.dumps(['search_tutors working fine', 'reshma', 'sampath']))
