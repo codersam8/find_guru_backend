@@ -36,6 +36,8 @@ def search_tutors(request):
     print('*' * 80)
     print('loca', location)
     matched_tutors = list(Tutor.objects.filter(location__icontains=location))
+    matched_locations = [a_tutor.location for a_tutor in matched_tutors]
     print('*' * 80)
     print('matched_tutors', matched_tutors)
+    return HttpResponse(json.dumps(matched_locations))
     return HttpResponse(serializers.serialize('json', matched_tutors))
